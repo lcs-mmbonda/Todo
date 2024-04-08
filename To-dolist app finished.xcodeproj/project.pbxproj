@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58E323052BC4705D00D27A7F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E323042BC4705D00D27A7F /* Task.swift */; };
 		58EC8E3A2BC468320020EEE5 /* To_dolist_app_finishedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EC8E392BC468320020EEE5 /* To_dolist_app_finishedApp.swift */; };
 		58EC8E3C2BC468320020EEE5 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EC8E3B2BC468320020EEE5 /* LandingView.swift */; };
 		58EC8E3E2BC468350020EEE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58EC8E3D2BC468350020EEE5 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58E323042BC4705D00D27A7F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		58EC8E362BC468320020EEE5 /* To-dolist app finished.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To-dolist app finished.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58EC8E392BC468320020EEE5 /* To_dolist_app_finishedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = To_dolist_app_finishedApp.swift; sourceTree = "<group>"; };
 		58EC8E3B2BC468320020EEE5 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		58EC8E492BC46B7A0020EEE5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				58E323042BC4705D00D27A7F /* Task.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58EC8E3C2BC468320020EEE5 /* LandingView.swift in Sources */,
+				58E323052BC4705D00D27A7F /* Task.swift in Sources */,
 				58EC8E3A2BC468320020EEE5 /* To_dolist_app_finishedApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
