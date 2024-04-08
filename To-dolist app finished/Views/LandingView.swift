@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct LandingView: View {
+    // MARK: Stored properties
+    
+    // MARK: Computed properties
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView{
+            VStack {
+                List{
+                    Text("Study For chemistry quiz")
+                    Text("Do comp sci ")
+                    Text("Eat food")
+                }
+            }
+            .navigationTitle("To do")
         }
-        .padding()
     }
 }
 
