@@ -14,15 +14,18 @@ struct LandingView: View {
     @State var newItemDescription = ""
     //THe search text
     @State var searchText = ""
+    //list of to-do items
+    @State var todos: [TdoItem] = exampleItems
     
     // MARK: Computed properties
     var body: some View {
         NavigationView{
             VStack {
-                List{
-                    ItemView(title: "Study Chem", done: false)
-                    ItemView(title: "Comp Sci", done: false)
-                    ItemView(title: "Eat food", done: true)
+                
+                
+                List(todos) { todo in
+                    ItemView(currentItem: todo)
+                    
                         
                     
                 }
@@ -32,9 +35,11 @@ struct LandingView: View {
                     TextField("Enter a to-do item", text: $newItemDescription)
                     Button("ADD") {
                         // Add new todo item
+                        createToDo(withTitle: newItemDescription)
                         
                     }
                     .font(.caption)
+                    .disabled(newItemDescription.isEmpty == true)
                 }
                 .padding(20)
                 
@@ -42,27 +47,21 @@ struct LandingView: View {
             .navigationTitle("To do")
         }
     }
+    //Mark: Functions
+    func createToDo(withTitle title: String){
+        let todo = TdoItem(
+            title: title, 
+            done: false)
+        todos.append(todo)
+    }
+    
 }
+
+
 
 #Preview {
     LandingView()
 }
 
-struct ItemView: View {
-    
-    let title: String
-    let done: Bool
-    
-    var body: some View {
-        Label(
-            title: { Text(title)
-                
-            }, icon: { 
-                Image(systemName: done == true ? "checkmark.circle": "circle")
-                   
-                    }
-                
-        )
-    }
-}
+
 
