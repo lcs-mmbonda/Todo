@@ -23,8 +23,20 @@ struct LandingView: View {
             VStack {
                 
                 
-                List(todos) { todo in
+                List($todos) { $todo in
                     ItemView(currentItem: todo)
+                        .swipeActions {
+                            Button(
+                                "Delete",
+                                role: .destructive,
+                                action: {
+                                    delete(todo: todo)
+                            }
+                                )
+                        }
+                        .onTapGesture {
+                            todo.done.toggle()
+                        }
                     
                         
                     
@@ -53,6 +65,14 @@ struct LandingView: View {
             title: title, 
             done: false)
         todos.append(todo)
+    }
+    
+    func delete ( todo: TdoItem) {
+        
+        todos.removeAll { currentItem in currentItem.id == todo.id
+            
+            
+        }
     }
     
 }
