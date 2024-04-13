@@ -4,7 +4,7 @@
 //
 //  Created by Myers Elliott Mbonda on 2024-04-08.
 //
-
+import SwiftData
 import SwiftUI
 
 struct LandingView: View {
@@ -16,6 +16,8 @@ struct LandingView: View {
     @State var searchText = ""
     //list of to-do items
     @State var todos: [TdoItem] = exampleItems
+    // Acess the model content
+    @Environment(\.modelContext) var modelcontext
     
     // MARK: Computed properties
     var body: some View {
