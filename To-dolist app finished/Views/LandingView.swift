@@ -15,7 +15,7 @@ struct LandingView: View {
     //THe search text
     @State var searchText = ""
     //list of to-do items
-    @State var todos: [TdoItem] = exampleItems
+    @Query var todos: [TdoItem]
     // Acess the model content
     @Environment(\.modelContext) var modelcontext
     
@@ -25,24 +25,16 @@ struct LandingView: View {
             VStack {
                 
                 
-                List($todos) { $todo in
-                    ItemView(currentItem: $todo)
-                        .swipeActions {
-                            Button(
-                                "Delete",
-                                role: .destructive,
-                                action: {
-                                    delete(todo: todo)
-                            }
-                                )
-                        }
+                List {
+                    ForEach(todos) { todo in
                         
-                    
+                        ItemView(currentItem: todo)
                         
-                    
+                    }
+                    .onDelete(perform: removeRows)
                 }
                 .searchable(text: $searchText)
-                 
+                
                 HStack {
                     TextField("Enter a to-do item", text: $newItemDescription)
                     Button("ADD") {
@@ -55,32 +47,47 @@ struct LandingView: View {
                 }
                 .padding(20)
                 
+                
+                
+                
             }
             .navigationTitle("To do")
+            
+            
+            
+            
         }
+        
     }
+    
     //Mark: Functions
     func createToDo(withTitle title: String){
         let todo = TdoItem(
-            title: title, 
-            done: false)
-        todos.append(todo)
+            title: title,
+            done: false
+            
+        )
+        modelcontext.insert(todo)
     }
     
-    func delete ( todo: TdoItem) {
+    func removeRows(at offsets: IndexSet) {
         
-        todos.removeAll { currentItem in currentItem.id == todo.id
-            
-            
+        // Accept the offset within the list
+        // (the position of the item being deleted)
+        //
+        // Then ask the model context to delete this
+        // for us, from the 'todos' array
+        for offset in offsets {
+            modelcontext.delete(todos[offset])
         }
     }
-    
 }
 
 
 
+
 //#Preview {
-  //  LandingView()
+//  LandingView()
 //}
 
 

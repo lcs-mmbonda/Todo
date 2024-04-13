@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemView: View {
     
-    @Binding var currentItem: TdoItem
+    @Bindable var currentItem: TdoItem
     
     var body: some View {
         Label(
@@ -27,8 +27,8 @@ struct ItemView: View {
     }
 }
 
-#Preview {
-    List{
-        ItemView(currentItem: Binding.constant(firstItem))
-    }
-}
+//#Preview {
+//    List{
+//        ItemView(currentItem: Binding.constant(firstItem))
+//    }
+//}
