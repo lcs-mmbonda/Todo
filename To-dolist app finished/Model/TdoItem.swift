@@ -5,12 +5,19 @@
 //  Created by Myers Elliott Mbonda on 2024-04-08.
 //
 
-import Foundation
-
-struct TdoItem: Identifiable {
-    let id = UUID()
+import SwiftData
+@Model
+class TdoItem: Identifiable {
+    
     var title: String
     var done: Bool
+    
+    init(title: String, done: Bool) {
+        self.title = title
+        self.done = done
+    }
+    
+    
 }
 let firstItem = TdoItem(title: "STudy chem", done: false)
 
